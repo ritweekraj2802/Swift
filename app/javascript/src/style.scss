@@ -1,0 +1,203 @@
+$fa-font-path: "~@fortawesome/fontawesome-free/webfonts";
+@import "~@fortawesome/fontawesome-free/scss/fontawesome";
+@import "~@fortawesome/fontawesome-free/scss/regular";
+@import "~@fortawesome/fontawesome-free/scss/solid";
+@import "~@fortawesome/fontawesome-free/scss/v4-shims";
+@import "~@fortawesome/fontawesome-free/scss/brands";
+
+@import "~bootstrap/scss/bootstrap";
+
+body {
+  font-family: "Montserrat", sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  .container-fluid {
+    flex: 1;
+  }
+}
+
+.alert {
+  margin-bottom: 0 !important;
+}
+
+.divider-text {
+  position: relative;
+  text-align: center;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  span {
+    padding: 7px;
+    font-size: 12px;
+    position: relative;
+    z-index: 2;
+  }
+  &:after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    border-bottom: 1px solid #ddd;
+    top: 55%;
+    left: 0;
+    z-index: 1;
+  }
+}
+
+.btn-square {
+  background-color: #bac0c5;
+  color: rgba(0, 0, 0, 1);
+  line-height: 1;
+}
+
+// devise alert to extend bootstrap colours
+#error_explanation {
+  @extend .invalid-feedback;
+  display: block;
+}
+.messages {
+}
+
+.fb {
+  // font-family: "Font Bachmanity";
+  display: inline-block;
+  font-style: normal;
+  padding-right: 5px;
+  &.fb-square:before {
+    content: " ";
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 44 44' role='img'%3E%3Cpath role='presentation' d='M36.65 0h-29.296c-4.061 0-7.354 3.292-7.354 7.354v29.296c0 4.062 3.293 7.354 7.354 7.354h29.296c4.062 0 7.354-3.292 7.354-7.354v-29.296c.001-4.062-3.291-7.354-7.354-7.354zm-.646 33.685c0 1.282-1.039 2.32-2.32 2.32h-23.359c-1.282 0-2.321-1.038-2.321-2.32v-23.36c0-1.282 1.039-2.321 2.321-2.321h23.359c1.281 0 2.32 1.039 2.32 2.321v23.36z'%3E%3C/path%3E%3Cpath role='presentation' d='M17.333 28.003c-.736 0-1.332-.6-1.332-1.339v-9.324c0-.739.596-1.339 1.332-1.339h9.338c.738 0 1.332.6 1.332 1.339v9.324c0 .739-.594 1.339-1.332 1.339h-9.338z'%3E%3C/path%3E%3C/svg%3E");
+    background-size: 27px 27px;
+    width: 27px !important;
+    height: 27px !important;
+    display: inline-block;
+  }
+}
+
+.devise-form {
+  form {
+    margin-bottom: 1.25em;
+  }
+  .field {
+    @extend .mb-3;
+  }
+  input {
+    &[type="email"],
+    &[type="password"] {
+      @extend .form-control;
+    }
+    &[type="checkbox"] {
+      // @extend .form-check-input;
+    }
+    &[type="submit"] {
+      @extend .btn;
+      @extend .btn-primary;
+    }
+  }
+}
+#error_explanation {
+  @extend .invalid-feedback;
+  display: inherit;
+  @extend .alert;
+  @extend .alert-danger;
+}
+
+.form-control-file {
+  @extend .form-control;
+}
+
+@keyframes cf4FadeInOut {
+  0% {
+    opacity: 1;
+  }
+  17% {
+    opacity: 1;
+  }
+  25% {
+    opacity: 0;
+  }
+  92% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.pre-container {
+  .jumbotron {
+    border-radius: 0;
+    height: 580px; /* You must set a specified height */
+    padding: 0; // not really a jumbotron
+    .images {
+      position: relative;
+    }
+    .image {
+      position: absolute;
+      height: 580px; /* You must set a specified height */
+      width: 100%; // 100% + 4 rem to counter padding 4rem 2rem on jumbotron
+      background-position: center; /* Center the image */
+      background-repeat: no-repeat; /* Do not repeat the image */
+      background-size: cover;
+      animation-name: cf4FadeInOut;
+      animation-timing-function: ease-in-out;
+      animation-iteration-count: infinite;
+      animation-duration: 6s;
+    }
+    .image_1 {
+      background-image: url("https://trello-attachments.s3.amazonaws.com/5beb6a95a434e903fe3ce55a/6000b10d8c35784249118b23/3af9cd861b38537e51d0c9f14d8a4057/pexels-kyle-roxas-2122294.jpg");
+    }
+    .image_2 {
+      background-image: url("https://trello-attachments.s3.amazonaws.com/5beb6a95a434e903fe3ce55a/6000b10d8c35784249118b23/6d136f776ec7f3b03205546f32aac058/pexels-carlo-fuentelsaz-3821692.jpg");
+    }
+    .image_3 {
+      background-image: url("https://trello-attachments.s3.amazonaws.com/5beb6a95a434e903fe3ce55a/6000b10d8c35784249118b23/8c2c7c54d3a47b54a5075d7f8a448794/pexels-pixabay-45202.jpg");
+    }
+  }
+}
+
+#cf4a .image:nth-of-type(1) {
+  animation-delay: 4s;
+}
+#cf4a .image:nth-of-type(2) {
+  animation-delay: 2s;
+}
+#cf4a .image:nth-of-type(3) {
+  animation-delay: 0;
+}
+
+#cf4a .image {
+  position: absolute;
+  left: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.display-text {
+  font-size: 20px;
+  line-height: 1.25;
+  &.stronger {
+    font-weight: 700;
+    font-size: 52px;
+  }
+}
+
+.footer {
+  background-color: rgb(250, 251, 252);
+  font-size: 12px;
+  a {
+    @extend .text-secondary;
+  }
+}
+
+pre.word-wrap {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.selected-file {
+  background: #ddeeff;
+  border-radius: 0.2em;
+  margin-top: 1px;
+  padding: 0.2em;
+}
+
+.selected-file input[type="file"] {
+  display: none;
+}

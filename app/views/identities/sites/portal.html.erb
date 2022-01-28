@@ -1,0 +1,18 @@
+<%= content_tag(
+  :div,
+  "",
+  data: {
+    app: "portal-app",
+    identity: params[:identity_id],
+    site: params[:id],
+    config: @config,
+  },
+  style: "height:100%"
+)%>
+<%= javascript_pack_tag "portal_app" %>
+<style>
+body {
+  margin: 0;
+  overflow-y: hidden;
+}
+</style>

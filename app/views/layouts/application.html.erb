@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SWiF</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://demo.dashboardpack.com/architectui-html-free/main.css" rel="stylesheet"></head>
+    <%= yield :head %>
+  </head>
+
+  <body>
+    <%= render partial: 'layouts/navbar' %>
+    <div class="messages">
+      <%= flash_messages %>
+      <%= yield :messages %>
+    </div>
+    <main class="container-fluid">
+      <%= content_for?(:content) ? yield(:content) : yield %>
+    </main>
+    <%= render partial: 'layouts/footer' %>
+  </body>
+</html>

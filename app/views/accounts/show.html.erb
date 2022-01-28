@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="col-lg-6 offset-lg-3">
+		<%= simple_form_for(@user, url: account_path(@user) ) do |f| %>
+			<%= image_tag avatar_path(f.object), class: "rounded border shadow-sm d-block mx-auto my-3" %>
+			<%= f.input :email %>
+		<% end %>
+		<% if current_user.id != @user.id %>
+			<% if @user.user_actions&.dig("admin", "can_administer") %>
+				<hr>
+				<strong >User is ADMIN</strong>
+        <%= link_to "Revoke Admin", revoke_admin_account_path(@user), class: "btn btn-danger", method: :post unless current_user.id == @user.id %>
+			<% else %>
+				<hr>
+        <%= link_to "Promote to Admin", promote_admin_account_path(@user), class: "btn btn-warning", method: :post %>
+			<% end %>
+		<% end %>
+	</div>
+</div>

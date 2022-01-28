@@ -1,0 +1,16 @@
+#!/usr/bin/env ruby
+
+require_relative "changes"
+
+changes = Changes.all.filter do |file|
+  file.end_with?(".js", ".jsx", ".svelte")
+end
+
+if changes.empty?
+  puts "There are no modified .js, .jsx or .svelte files"
+else
+  all_changes = changes.join(" ")
+  puts "Fixing: #{all_changes}"
+  system "yarn format"
+  system "npx eslint --fix #{all_changes}"
+end
